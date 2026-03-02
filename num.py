@@ -1,0 +1,31 @@
+import numpy as np
+print("=================================================")
+print("Task1")
+print("=================================================")
+scores=np.random.randint(50,101,size=(5,4))
+print(scores)
+print("score of 3rd student in second subject:",scores[3,2])
+marks=scores[3:5]
+print(marks)
+a=scores[0:3,1:3]
+print(a)
+print("=================================================")
+print("Task2")
+print("=================================================")
+col_avg=scores.mean(axis=0)
+print("col_wise_average:",col_avg)
+curve=np.array([5,3,7,2])
+curve_scores=scores + curve
+curve_scores=np.clip(curve_scores,0,100)
+print(curve_scores)
+row_max=scores.max(axis=1)
+print("row_wise_ma:",row_max)
+print("=================================================")
+print("Task3")
+print("=================================================")
+row_max=scores.max(axis=1).reshape(-1,1)
+row_min=scores.min(axis=1).reshape(-1,1)
+normalized_score=(scores - row_min)/(row_max - row_min)
+print("normalized_scorce:",normalized_score)
+scores_above_90=curve_scores[curve_scores > 90]
+print("scores strictly above 90(1D array):",scores_above_90)
